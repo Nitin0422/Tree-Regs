@@ -2,10 +2,15 @@ from django.contrib import admin
 from .models import *
 
 # Register your models here.
-class ETRSAdmin(admin.ModelAdmin):
-    fields = ('tree_id', 'name')
+class LandDetailsAdmin(admin.ModelAdmin):
+    list_display = ("id", "latitude", "longitude")
+admin.site.register(LandDetails, LandDetailsAdmin)
 
-admin.site.register(LandDetails)
+class ETRSAdmin(admin.ModelAdmin):
+    list_display= ("tree_id_id", "tree_name")
 admin.site.register(ETRS, ETRSAdmin)
-admin.site.register(CTRS)
+
+class CTRSAdmin(admin.ModelAdmin):
+    list_display = ("tree_id_id", "tree_name")
+admin.site.register(CTRS, CTRSAdmin)
 
